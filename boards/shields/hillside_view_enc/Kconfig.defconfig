@@ -1,7 +1,7 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_HILLSIDE_VIEW_ENC_LEFT
+if SHIELD_HILLSIDE_VIEW_ENC_RIGHT
 
 config ZMK_KEYBOARD_NAME
     default "Hillside View Enc"
@@ -18,7 +18,7 @@ config BT_MAX_CONN
 config BT_MAX_PAIRED
     default 6
 
-endif # SHIELD_HILLSIDE_VIEW_ENC_LEFT
+endif # SHIELD_HILLSIDE_VIEW_ENC_RIGHT
 
 if SHIELD_HILLSIDE_VIEW_ENC_LEFT || SHIELD_HILLSIDE_VIEW_ENC_RIGHT
 

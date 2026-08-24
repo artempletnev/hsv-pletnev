@@ -5,14 +5,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/mouse.h>
 
 #define DEF 0
 #define NUM 1
 #define SYM 2
 #define FUN 3
-#define MOUSE 4
-#define ADJ 5
+#define ADJ 4
 
 #define QUICK_TAP_MS 175
 #define TAPPING_TERM_MS 150
@@ -85,10 +83,10 @@
             display-name = "Default";
             bindings = <
     &kp ESC        &ht NUM Q     &kp W      &kp E      &kp R       &kp T         &kp Y    &kp U        &kp I       &kp O        &ht SYM P     &kp LBKT
-    &kp AMPS       &ht MOUSE A   &kp S      &kp D      &kp F       &kp G         &kp H    &kp J        &kp K       &kp L        &ht FUN SEMI  &ht SYM SQT
+    &kp AMPS       &ht FUN A     &kp S      &kp D      &kp F       &kp G         &kp H    &kp J        &kp K       &kp L        &ht FUN SEMI  &ht SYM SQT
     &kp GRAVE      &ht FUN Z     &kp X      &kp C      &kp V       &kp B         &kp N    &kp M        &kp RBKT    &kp FSLH     &ht NUM DOT   &kp COMMA
                                                           &kp END                            &kp C_PP
-                            &ht LCTRL TAB &ht LSHFT SPC &ht LGUI DEL &lq MOUSE F23     &lq ADJ F24 &ht RGUI BSPC &ht RSHFT RET &lq ADJ APP
+                            &ht LCTRL TAB &ht LSHFT SPC &ht LGUI DEL &lq FUN F23     &lq ADJ F24 &ht RGUI BSPC &ht RSHFT RET &lq ADJ APP
             >;
 
             // Энкодеры: левый = Page Up/Down, правый = стрелки

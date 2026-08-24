@@ -13,9 +13,9 @@ manifest:
     - name: m165437
       url-base: https://github.com/M165437
   projects:
-    - name: zmk
+        - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3
       import: app/west.yml
     # - name: zmk-dongle-screen
     #   remote: janpfischer

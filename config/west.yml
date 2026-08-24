@@ -13,16 +13,10 @@ manifest:
     - name: m165437
       url-base: https://github.com/M165437
   projects:
-        - name: zmk
+    - name: zmk
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
-    # - name: zmk-dongle-screen
-    #   remote: janpfischer
-    #   revision: upgrade-4.1
-    # - name: nice-view-gem
-    #   remote: m165437
-    #   revision: main
     - name: nice-view-gem
       remote: mike1808
       revision: feat/mods
@@ -31,3 +25,4 @@ manifest:
       revision: fix/new-status-screan-zmk-refactor
   self:
     path: config
+

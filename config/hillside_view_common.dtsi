@@ -105,8 +105,8 @@
         sym_layer {
             display-name = "Symbols";
             bindings = <
-                &trans   &none   &kp HOME     &kp UP   &kp END   &kp LC(V)            &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
-                &trans   &none     &kp LEFT     &kp DOWN    &kp RIGHT &kp LC(C)       &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
+                &msc SCRL_LEFT   &msc SCRL_UP   &kp HOME     &kp UP   &kp END   &kp LC(V)            &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
+                &msc SCRL_RIGHT   &msc SCRL_DOWN     &kp LEFT     &kp DOWN    &kp RIGHT &kp LC(C)       &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
                 &trans   &none     &trans     &trans     &kp LC(A)    &kp LC(X)       &kp LPAR     &kp RPAR     &kp TILDE       &kp RBRC   &kp EXCL   &kp TILDE
                                                                     &kp END         &kp C_PP
                                     &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans

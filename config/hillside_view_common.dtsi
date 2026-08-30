@@ -93,7 +93,7 @@
             >;
 
             /*sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;*/
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&scroll_encoder &inc_dec_kp LEFT RIGHT>;
         };
 
 
@@ -107,7 +107,7 @@
                                     &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
             >;
 
-            sensor-bindings = < &msc SCRL_UP SCRL_DOWN &inc_dec_kp  LEFT RIGHT>;
+            sensor-bindings = <&scroll_encoder &inc_dec_kp LEFT RIGHT>;
         };
 
         num_layer {

@@ -94,7 +94,7 @@
             display-name = "Symbols";
             bindings = <
                 &trans   &none   &kp HOME     &kp UP   &kp END   &kp LC(V)            &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
-                &trans   &none     &LEFT     &kp DOWN    &kp RIGHT &kp LC(C)          &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
+                &trans   &none     &kp LEFT     &kp DOWN    &kp RIGHT &kp LC(C)          &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
                 &trans   &none     &trans     &trans     &kp LC(A)    &kp LC(X)         &kp LBRACE   &kp RBRACE     &kp TILDE       &kp RBRC   &kp EXCL   &kp TILDE
                                                                     &kp END         &kp C_PP
                                     &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans

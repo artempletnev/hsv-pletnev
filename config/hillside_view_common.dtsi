@@ -6,7 +6,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20 // default: 10
+#define ZMK_MOUSE_SCRL_VAL 140
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 140S // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0     /* Индекс слоя Default (базовый) */

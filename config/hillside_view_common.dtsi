@@ -71,6 +71,11 @@
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
         };
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        };
     };
 
 
@@ -84,10 +89,11 @@
                 &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
                 &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
                                                                     &kp END                                                      &kp C_PP
-                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
+                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ RET &ht RSHFT TAB
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
+            /*sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;*/
+            sensor-bindings = <&scroll_encoder>;
         };
 
 

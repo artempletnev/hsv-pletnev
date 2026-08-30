@@ -300,6 +300,44 @@ sensor-bindings = <
 &lq NUM DEL
 ```
 
+# Шпаргалка: коды управления RGB Underglow в ZMK
+
+## Подключение
+Добавить в начало keymap-файла (или .dtsi, который он инклудит): `#include <dt-bindings/zmk/rgb.h>`
+
+## Требования в Kconfig
+В .conf-файле платы должно быть включено `CONFIG_ZMK_RGB_UNDERGLOW=y`, и в devicetree платы должна быть описана LED-strip нода (адресуемые светодиоды).
+
+## Полный список кодов &rgb_ug
+| Макрос | Действие | Комментарий |
+|---|---|---|
+| `RGB_TOG` | Toggle | Включить/выключить подсветку |
+| `RGB_ON` | On | Принудительно включить |
+| `RGB_OFF` | Off | Принудительно выключить |
+| `RGB_HUI` | Hue Increase | Увеличить оттенок цвета |
+| `RGB_HUD` | Hue Decrease | Уменьшить оттенок цвета |
+| `RGB_SAI` | Saturation Increase | Увеличить насыщенность |
+| `RGB_SAD` | Saturation Decrease | Уменьшить насыщенность |
+| `RGB_BRI` | Brightness Increase | Увеличить яркость |
+| `RGB_BRD` | Brightness Decrease | Уменьшить яркость |
+| `RGB_SPI` | Effect Speed Increase | Ускорить анимацию эффекта |
+| `RGB_SPD` | Effect Speed Decrease | Замедлить анимацию эффекта |
+| `RGB_EFF` | Effect Forward | Следующий эффект по списку |
+| `RGB_EFR` | Effect Reverse | Предыдущий эффект по списку |
+
+Важно: макроса `RGB_EFS` не существует.
+
+## Синтаксис в keymap
+`&rgb_ug RGB_TOG`, `&rgb_ug RGB_EFF`, `&rgb_ug RGB_BRI` — пример рабочей строки: `&bootloader &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_EFR &rgb_ug RGB_SPI &trans &out OUT_TOG &trans &trans &trans &trans &bootloader`
+
+## Статические цвета через HSB
+`&rgb_ug RGB_COLOR_HSB(<hue> <sat> <bri>)` — hue: 0-359, saturation: 0-100, brightness: 0-100 (требует поддержки расширенного синтаксиса в используемой версии ZMK).
+
+## Частые ошибки
+- Код без префикса `RGB_` (например `TOG` вместо `RGB_TOG`) — ошибка парсера DTC "expected number or parenthesized expression".
+- Опечатка в названии макроса (например `RGB_EFS` вместо `RGB_SPI`) — та же ошибка, несуществующий макрос не разворачивается в число.
+- Забытый `#include <dt-bindings/zmk/rgb.h>` — тогда даже корректные коды не резолвятся.
+
 ## 12. Полезные ссылки
 
 - Официальная документация: https://zmk.dev/docs/configuring/keymaps

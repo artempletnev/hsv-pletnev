@@ -20,7 +20,6 @@
 &left_encoder {
     status = "okay";
     steps = <96>;
-    triggers-per-rotation = <24>;
 };
 
 &glidepoint_split {

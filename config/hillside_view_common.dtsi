@@ -1,3 +1,11 @@
+#include <behaviors/studio_unlock.dtsi>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+
 #define DEF 0     /* Индекс слоя Default (базовый) */
 #define SYM 1     /* Индекс слоя Symbols (символы) */
 #define NUM 2     /* Индекс слоя Numbers (цифры + F1-F10) */

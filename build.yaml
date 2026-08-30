@@ -21,10 +21,13 @@ include:
   - board: nice_nano//zmk
     shield: hillside_view_enc_left nice_view_gem
     snippet: studio-rpc-usb-uart
+    artifact-name: hsv_left
   - board: nice_nano//zmk
     shield: hillside_view_enc_right nice_view_gem
+    artifact-name: hsv_right
   - board: nice_nano//zmk
     shield: settings_reset
+    artifact-name: hsv_right
   #- board: xiao_ble//zmk
   #  shield: settings_reset
   #- board: nice_nano//zmk

@@ -81,7 +81,7 @@
     &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
     &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
                                                            &kp END                                                      &kp C_PP
-                                 &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23     &lq NUM F24 &ht RGUI DEL &ht RSHFT RET &kp RGUI
+                                 &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM G+SPACE      &lq NUM F24 &ht RALT BSPC &ht RSHFT RET &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
@@ -94,8 +94,8 @@
     &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
     &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
     &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
-                                               &kp END                                                               &kp C_PP
-                        &trans     &trans     &trans     &trans                        &trans     &trans             &trans     &trans
+                                                         &kp END         &kp C_PP
+                        &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_NEXT C_PREV>;
@@ -104,11 +104,11 @@
         num_layer {
             display-name = "Numbers";
             bindings = <
-    &kp TAB  &ht F1 N1    &ht F2 N2    &ht F3 N3    &ht F4 N4    &ht F5 N5        &ht F6 N6  &ht F7 N7  &ht F8 N8  &ht F9 N9   &ht F10 N0    &trans
-    &trans   &trans       &trans       &trans       &trans       &trans           &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT   &trans        &trans
-    &trans   &trans       &trans       &trans       &trans       &trans           &kp HOME   &kp PG_DN  &kp PG_UP  &kp END     &trans        &trans
-                                                     &trans                                                          &trans
-                          &trans       &trans       &trans       &trans                        &trans     &trans     &trans      &trans
+                &trans   &trans    &trans    &trans     &trans              &trans              &kp DOT   &kp N7      &kp N8   &kp N9    &kp KP_PLUS &trans
+                &trans   &trans    &trans    &trans     &kp KP_PLUS         &kp KP_MINUS        &kp N0   &kp N4      &kp N5   &kp N6    &kp KP_MINUS &trans
+                &trans   &trans    &trans    &trans     &kp KP_MULTIPLY     &kp KP_DIVIDE       &trans   &kp N1      &kp N2   &kp N3    &kp KP_ENTER &trans
+                                                                            &trans              &trans
+                                      &trans       &trans       &trans      &trans              &trans     &trans     &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp HOME END &inc_dec_kp C_NEXT C_PREV>;
@@ -117,11 +117,11 @@
         adj_layer {
             display-name = "Adjust";
             bindings = <
-    &bootloader   &trans         &trans         &trans         &trans         &trans             &out OUT_TOG     &trans   &trans     &trans         &trans       &bootloader
-    &sys_reset    &trans         &trans         &trans         &trans         &trans             &studio_unlock   &trans   &trans     &trans         &trans       &sys_reset
-    &bt BT_CLR    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp C_PREV       &kp C_PP &kp C_NEXT &kp C_VOL_UP   &kp C_MUTE   &kp C_VOL_DN
-                                                                 &trans                                                      &trans
-                                  &ext_power EP_TOG &trans      &trans         &trans                               &trans   &trans     &trans         &trans
+                &bootloader   &rgb_ug TOG   &rgb_ug EFF   &rgb_ug EFR   &rgb_ug EFS   &trans             &out OUT_TOG    &trans            &trans     &trans     &trans     &bootloader
+                &sys_reset    &rgb_ug HUI   &rgb_ug HUD   &rgb_ug BRI   &rgb_ug BRD   &trans             &kp PRINTSCREEN &studio_unlock    &trans     &trans     &trans     &sys_reset
+                &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_PREV      &kp C_PP          &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &trans
+                                                                 &trans                                  &trans
+                                  &ext_power EP_TOG &trans      &trans         &trans                    &trans   &trans     &trans         &trans
             >;
 
             // F15 and F14 are brightness controls for macOS

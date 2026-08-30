@@ -10,6 +10,8 @@
 #define SYM 1     /* Индекс слоя Symbols (символы) */
 #define NUM 2     /* Индекс слоя Numbers (цифры + F1-F10) */
 #define ADJ 3     /* Индекс слоя Adjust (настройки, BT, bootloader) */
+#define FUN 4     /* Индекс слоя Functional */
+
 #define QUICK_TAP_MS 175   /* Порог (мс) для «быстрого» двойного тапа в hold-tap */
 #define TAPPING_TERM_MS 150 /* Макс. время (мс) удержания, после которого считается hold, а не tap */
 
@@ -77,11 +79,11 @@
         default_layer {
             display-name = "Default";
             bindings = <
-    &kp ESC        &kp Q        &kp W        &kp E        &kp R           &kp T           &kp Y       &kp U           &kp I        &kp O        &kp P        &kp LBKT
-    &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
-    &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
-                                                           &kp END                                                      &kp C_PP
-                                 &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
+                &kp ESC        &kp Q        &kp W        &kp E        &kp R           &kp T           &kp Y       &kp U           &kp I        &kp O        &kp P        &kp LBKT
+                &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
+                &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
+                                                                    &kp END                                                      &kp C_PP
+                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
@@ -91,14 +93,14 @@
         sym_layer {
             display-name = "Symbols";
             bindings = <
-    &trans   &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp KP_MULTIPLY    &kp LPAR   &kp RPAR   &kp BSPC
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp MINUS   &kp EQUAL  &kp LBKT           &kp RBKT   &kp BSLH   &kp GRAVE
-    &trans   &trans     &trans     &trans     &trans     &trans          &kp UNDER   &kp PLUS   &kp LBRC           &kp RBRC   &kp PIPE   &kp TILDE
-                                                         &kp END         &kp C_PP
-                        &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
+                &trans   &none   &kp HOME     &kp UP   &kp END   &kp C+V            &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
+                &trans   &none     &LEFT     &kp DOWN    &kp RIGHT &kp C+C          &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
+                &trans   &none     &trans     &trans     &kp C+A    &kp C+X         &kp LBRACE   &kp RBRACE     &kp TILDE       &kp RBRC   &kp EXCL   &kp TILDE
+                                                                    &kp END         &kp C_PP
+                                    &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp  LEFT RIGHT>;
         };
 
         num_layer {
@@ -120,11 +122,30 @@
                 &bootloader   &rgb_ug RGB_TOG   &rgb_ug RGB_SAI   &rgb_ug RGB_SAD   &rgb_ug RGB_SPI   &rgb_ug RGB_SPD             &out OUT_TOG    &trans            &trans     &trans     &trans     &bootloader
                 &sys_reset    &rgb_ug RGB_HUI   &rgb_ug RGB_HUD   &rgb_ug RGB_BRI   &rgb_ug RGB_BRD   &rgb_ug RGB_EFF             &kp PRINTSCREEN &studio_unlock    &trans     &trans     &trans     &sys_reset
                 &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_PREV      &kp C_PP          &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &trans
-                                                                 &trans                                  &trans
+                                                                 &kp C_PP                                  &trans
                                   &ext_power EP_TOG &trans      &trans         &trans                    &trans   &trans     &trans         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
+            sensor-bindings = <
+                &inc_dec_kp &rgb_ug RGB_BRI &rgb_ug RGB_BRD 
+                &inc_dec_kp  C_VOL_UP C_VOL_DN
+            >;
+        };
+
+        func_layer  {
+            display-name = "Functional";
+            bindings = <
+                &kp ESC        &kp Q        &kp W        &kp E        &kp R           &kp T           &kp F13      &kp F14          &kp F15    &kp F16    &kp F17     &kp F18
+                &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp F7       &kp F8           &kp F9     &kp F10    &kp F11     &kp F12
+                &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp F1       &kp F2           &kp F3     &kp F4     &kp F5      &kp F6 
+                                                                    &kp END                                                      &kp C_PP
+                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
+            >;
+
+            sensor-bindings = <
+                &inc_dec_kp &rgb_ug RGB_BRI &rgb_ug RGB_BRD 
+                &inc_dec_kp  C_VOL_UP C_VOL_DN
+            >;
         };
     };
 };

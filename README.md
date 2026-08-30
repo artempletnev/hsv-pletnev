@@ -13,10 +13,3 @@ This repo contains configurations for my ZMK based keyboards
 ### Layout
 
 Made with https://nickcoutsos.github.io/keymap-editor/
-
-![layer0](./assets/layer0.png)
-![layer1](./assets/layer1.png)
-![layer2](./assets/layer2.png)
-![layer3](./assets/layer3.png)
-![layer4](./assets/layer4.png)
-![layer5](./assets/layer5.png)

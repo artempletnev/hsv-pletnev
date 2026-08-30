@@ -7,7 +7,7 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define ZMK_MOUSE_SCRL_VAL 400
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 140S // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 140 // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0     /* Индекс слоя Default (базовый) */
@@ -18,7 +18,6 @@
 
 #define QUICK_TAP_MS 175   /* Порог (мс) для «быстрого» двойного тапа в hold-tap */
 #define TAPPING_TERM_MS 150 /* Макс. время (мс) удержания, после которого считается hold, а не tap */
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20 // default: 10
 
 &sk {                           /* Глобальная настройка Sticky Key (липкая клавиша) */
     release-after-ms = <600>;   /* Липкая клавиша автоматически отпускается через 600 мс */

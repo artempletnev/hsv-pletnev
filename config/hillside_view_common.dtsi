@@ -81,7 +81,7 @@
     &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
     &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
                                                            &kp END                                                      &kp C_PP
-                                 &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &ht &lq ADJ SPACE &ht RSHFT TAB
+                                 &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;

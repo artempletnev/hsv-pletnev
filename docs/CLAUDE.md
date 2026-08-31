@@ -12,7 +12,6 @@ This is a ZMK firmware configuration repository for custom split mechanical keyb
 
 - `boards/shields/` - Shield definitions at repo root (discovered via module system)
   - `hillside_view/` - Hillside View hardware definitions (.dtsi, .overlay, Kconfig files)
-  - `cygnus/` - Cygnus hardware definitions
 
 - `config/` - Main configuration directory containing keymaps and per-user settings
   - `*.keymap` - User-facing keymap files (hillside_view.keymap, cygnus.keymap)
@@ -44,8 +43,7 @@ This repository uses ZMK `main` branch in `config/west.yml`. To pin to a specifi
 
 Builds are defined in `build.yaml` and run via GitHub Actions using the ZMK shared workflow (`zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3`). The build matrix includes:
 - **Hillside View**: Split keyboard with nice!nano v2, nice_view_gem display and studio-rpc-usb-uart snippet
-- **Cygnus**: Split keyboard with nice!nano v2 peripherals (`nice_nano//zmk` board qualifier) and Seeeduino XIAO BLE dongle with screen
-- **Settings Reset**: Utility builds for both nice!nano v2 and Seeeduino XIAO BLE
+- **Settings Reset**: Utility builds for nice!nano v2
 
 Build outputs are generated as firmware artifacts by the GitHub Actions workflow.
 
@@ -72,17 +70,7 @@ The repository uses several ZMK modules defined in `config/west.yml`:
 - Trackpad uses I2C bus on peripheral with DR (data ready) GPIO
 - Conditional layer activation (ADJ layer activates when both SYM and NUM are held)
 
-**Cygnus:**
-- Split keyboard with dongle configuration
-- Dongle uses Seeeduino XIAO BLE with `prospector_adapter` shield for status screen display
-- Left and right sides are BLE peripherals using `nice_nano//zmk` board qualifier
-- `config/cygnus.conf` applies to all variants (ZMK strips `_left`/`_right`/`_dongle` suffixes when searching for conf files)
-- Central-only settings (ZMK Studio RPC, battery level fetching) live in `config/cygnus_dongle.conf`
-- Peripherals have `CONFIG_ZMK_USB=n` in `cmake-args` (the board default enables USB; a dependency blocks it on peripherals without this override)
-- Gaming layer (GAM) in addition to standard layers
-
-### Keymap Patterns
-
+### Keymap Patterns(not actual)
 Both keyboards follow similar patterns:
 - Layer definitions: DEF (default), SYM (symbols), NUM (numbers), ADJ (adjust), MOUSE (temp mouse clicks)
 - Home row mods with custom behaviors (`hml`, `hmr`)

@@ -1,0 +1,43 @@
+name: Publish stable ZMK firmware
+
+on:
+  push:
+    tags:
+      - stable
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      archive_name: hsv-stable
+
+  release:
+    name: Publish stable release
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download firmware archive
+        uses: actions/download-artifact@v4
+        with:
+          name: hsv-stable
+          path: release
+
+      - name: Show release files
+        run: ls -lah release
+
+      - name: Create or update the stable GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+        run: |
+          gh release create "$TAG" \
+            --title "Stable firmware" \
+            --notes "Стабильная сборка из commit $SHA" \
+            release/* \
+          || gh release upload "$TAG" release/* --clobber

@@ -42,13 +42,14 @@
 ```
 ┌─────────────────────────────────────────────┐
 │ Top Canvas (child 0, y=0)                   │
-│  🔋 Battery %   📡 USB/BLE icon             │
+│  🔋 Battery %   📡 USB/BLE icon            │
 ├─────────────────────────────────────────────┤
 │ Middle Canvas (child 1, y=-44)              │
-│  💎 Crystal / 📊 WPM / ⌨️ Mods              │  ← ЗДЕСЬ ВЫБИРАЕМ ВИДЖЕТ
+│  💎 Crystal / 📊 WPM / ⌨️ Mods            │  ← ЗДЕСЬ ВЫБИРАЕМ ВИДЖЕТ
 ├─────────────────────────────────────────────┤
 │ Bottom Canvas (child 2, y=-112)             │
-│  🔵🔵🔵🔵🔵 Profile dots   Layer: Default   │
+│ 🔵🔵🔵🔵🔵 Profile dots                   │
+│ Layer: Default                              │
 └─────────────────────────────────────────────┘
 ```
 

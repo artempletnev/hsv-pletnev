@@ -97,8 +97,8 @@
                                             &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ RET &ht RSHFT TAB
             >;
 
-            sensor-bindings = <&inc_dec_kp G(T) G(S(T)) &inc_dec_kp C(TAB) C(S(TAB)>;
-            /*sensor-bindings = <&scroll_encoder &inc_dec_kp )>;*/
+            sensor-bindings = <&inc_dec_kp G(T) G(S(T)) &inc_dec_kp C(TAB) C(S(TAB))>;
+            /*sensor-bindings = <&scroll_encoder &inc_dec_kp >;*/
         };
 
 

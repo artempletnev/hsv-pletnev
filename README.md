@@ -13,3 +13,9 @@ This repo contains configurations for my ZMK based keyboards
 ### Layout
 
 Made with https://nickcoutsos.github.io/keymap-editor/
+
+### Other docs
+How to work with:
+- [Displays](docs/Display_CheatSheet.md)
+- [Keymaps](./docs/ZMK_KEYMAP_CheatSheet.md)
+- [Mouse](./docs/Mouse_CheatSheet.md)

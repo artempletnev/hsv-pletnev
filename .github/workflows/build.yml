@@ -2,5 +2,19 @@ name: Build ZMK firmware
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  vars:
+    runs-on: ubuntu-latest
+    outputs:
+      archive_name: ${{ steps.set.outputs.archive_name }}
+    steps:
+      - id: set
+        run: |
+          short_sha=$(echo ${{ github.sha }} | cut -c1-7)
+          build_date=$(date +'%Y-%m-%d')
+          echo "archive_name=hsv-${build_date}-${short_sha}-run${{ github.run_number }}" >> $GITHUB_OUTPUT
+
   build:
+    needs: vars
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      archive_name: ${{ needs.vars.outputs.archive_name }}

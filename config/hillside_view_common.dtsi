@@ -6,6 +6,10 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#define ZMK_MOUSE_SCRL_VAL 400
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 140 // default: 10
+#include <dt-bindings/zmk/pointing.h>
+
 #define DEF 0     /* Индекс слоя Default (базовый) */
 #define SYM 1     /* Индекс слоя Symbols (символы) */
 #define NUM 2     /* Индекс слоя Numbers (цифры + F1-F10) */
@@ -57,7 +61,7 @@
             #binding-cells = <2>;                       /* 2 параметра: <hold_key tap_key> */
             flavor = "tap-preferred";                   /* Приоритет tap */
             tapping-term-ms = <200>;                    /* 200 мс на решение */
-            quick-tap-ms = <175>;
+            quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;                    /* hold = ключ, tap = ключ (оба Key Press) */
         };
 
@@ -67,8 +71,14 @@
             #binding-cells = <2>;
             flavor = "balanced";                        /* Равный баланс tap/hold (не偏向 ни к чему) */
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;
+        };
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <30>;
+            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_UP>;
         };
     };
 
@@ -82,25 +92,26 @@
                 &kp ESC        &kp Q        &kp W        &kp E        &kp R           &kp T           &kp Y       &kp U           &kp I        &kp O        &kp P        &kp LBKT
                 &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
                 &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
-                                                                    &kp END                                                      &kp C_PP
-                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
+                                                                    &mkp LCLK                                                      &kp C_PP
+                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ RET &ht RSHFT TAB
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
+            /*sensor-bindings = <&scroll_encoder &inc_dec_kp LEFT RIGHT>;*/
         };
 
 
         sym_layer {
             display-name = "Symbols";
             bindings = <
-                &trans   &none   &kp HOME     &kp UP   &kp END   &kp LC(V)            &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
-                &trans   &none     &kp LEFT     &kp DOWN    &kp RIGHT &kp LC(C)       &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
+                &msc SCRL_LEFT   &msc SCRL_UP   &kp HOME     &kp UP   &kp END   &kp LC(V)            &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
+                &msc SCRL_RIGHT   &msc SCRL_DOWN     &kp LEFT     &kp DOWN    &kp RIGHT &kp LC(C)       &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
                 &trans   &none     &trans     &trans     &kp LC(A)    &kp LC(X)       &kp LPAR     &kp RPAR     &kp TILDE       &kp RBRC   &kp EXCL   &kp TILDE
                                                                     &kp END         &kp C_PP
                                     &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp  LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp  LEFT RIGHT>;
         };
 
         num_layer {
@@ -121,7 +132,7 @@
             bindings = <
                 &bootloader   &rgb_ug RGB_TOG   &rgb_ug RGB_SAI   &rgb_ug RGB_SAD   &rgb_ug RGB_SPI   &rgb_ug RGB_SPD             &out OUT_TOG    &trans            &trans     &trans     &trans     &bootloader
                 &sys_reset    &rgb_ug RGB_HUI   &rgb_ug RGB_HUD   &rgb_ug RGB_BRI   &rgb_ug RGB_BRD   &rgb_ug RGB_EFF             &kp PRINTSCREEN &studio_unlock    &trans     &trans     &trans     &sys_reset
-                &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_PREV      &kp C_PP          &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &trans
+                &bt BT_CLR    &bt BT_SEL 0      &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_PREV      &kp C_PP          &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &trans
                                                                  &kp C_PP                                  &trans
                                   &ext_power EP_TOG &trans      &trans         &trans                    &trans   &trans     &trans         &trans
             >;

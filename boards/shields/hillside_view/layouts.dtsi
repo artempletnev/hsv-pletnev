@@ -3,7 +3,7 @@
 / {
     hsv_6col_layout: hsv_6col_layout {
         compatible = "zmk,physical-layout";
-        display-name = "Six Columns";
+        display-name = "6 Columns";
 
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0   55 (-1000)   100    15>
@@ -57,7 +57,7 @@
 
     hsv_5col_layout: hsv_5col_layout {
         compatible = "zmk,physical-layout";
-        display-name = "Five Column";
+        display-name = "5 Column";
 
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0   55 (-1000)     0    15>

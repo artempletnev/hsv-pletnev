@@ -19,6 +19,7 @@
 
 &left_encoder {
     status = "okay";
+    steps = <96>;
 };
 
 &glidepoint_split {

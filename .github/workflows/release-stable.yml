@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Download firmware archive
         uses: actions/download-artifact@v4
         with:
@@ -33,11 +36,12 @@ jobs:
       - name: Create or update the stable GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           TAG: ${{ github.ref_name }}
           SHA: ${{ github.sha }}
         run: |
           gh release create "$TAG" \
             --title "Stable firmware" \
-            --notes "Стабильная сборка из commit $SHA" \
+            --notes "Stable firmware built from commit $SHA" \
             release/* \
           || gh release upload "$TAG" release/* --clobber

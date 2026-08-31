@@ -93,11 +93,11 @@
                 &kp ESC        &kp Q        &kp W        &kp E        &kp R           &kp T     /**/      &kp Y       &kp U           &kp I        &kp O        &kp P        &kp LBKT
                 &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G     /**/      &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
                 &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B     /**/      &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
-                                                                                    &kp G(Z)    /**/      &kp C_PP
+                                                                                    &kp LG(Z)    /**/      &kp C_PP
                                             &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ RET &ht RSHFT TAB
             >;
 
-            sensor-bindings = <&inc_dec_kp G(T) G(S(T)) &inc_dec_kp C(TAB) C(S(TAB))>;
+            sensor-bindings = <&inc_dec_kp LG(T) LG(LS(T)) &inc_dec_kp LC(TAB) LC(LS(TAB))>;
             /*sensor-bindings = <&scroll_encoder &inc_dec_kp >;*/
         };
 

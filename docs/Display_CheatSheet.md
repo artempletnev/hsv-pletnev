@@ -73,12 +73,6 @@
 | `hillside_view_enc_left.conf` | **Только левая** (central) | Дисплей, battery, кастомный экран, модификаторы для левого экрана |
 | `hillside_view_enc_right.conf` | **Только правая** (peripheral) | Дисплей, battery, кастомный экран, модификаторы для правого экрана |
 
-### Файлы раскладки (`config/`)
-
-| Файл | Для чего |
-|------|----------|
-| `hillside_view_common.dtsi` | Общая раскладка для всех вариантов (behaviors, layers, combos) |
-| `hillside_view_enc.keymap` | Keymap для версии с энкодером (включает common.dtsi) |
 
 ### Файлы shield (`boards/shields/hillside_view_enc/`)
 

@@ -14,6 +14,8 @@ This repo contains configurations for my ZMK based keyboards
 
 Made with https://nickcoutsos.github.io/keymap-editor/
 
+Работа с клавиатурой подразумевает совметную работы с Universal Layout https://github.com/braindefender/universal-layout и с скриптами AutoHotKey.
+
 ### Other docs
 How to work with:
 - [Displays](docs/Display_CheatSheet.md)

@@ -77,18 +77,18 @@
             quick-tap-ms = <QUICK_TAP_MS>;
             bindings = <&kp>, <&kp>;
         };
+
         scroll_encoder: scroll_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            tap-ms = <30>;
-            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_UP>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         };
 
         td_qe: tap_dance_question_exclamation {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp QMARK>, <&kp EXCL>;
+            bindings = <&kp LS(N7)>, <&kp EXCL>;
         };
     };
 
@@ -102,20 +102,20 @@
                 &td_qe          &lt NAV A    &kp S        &kp D        &kp F           &kp G     /**/      &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
                 &kp GRAVE       &kp Z        &kp X        &kp C        &kp V           &kp B     /**/      &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
                                                                                     &kp LG(Z)    /**/      &kp C_PP
-                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &kp RET &ht RSHFT TAB
+                                &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM LC(LS(N1))      &lq NUM LC(LS(N2))  &ht RALT BSPC &kp RET &ht RSHFT TAB
             >;
 
-            sensor-bindings = <&inc_dec_kp LG(T) LG(LS(T)) &inc_dec_kp LC(TAB) LC(LS(TAB))>;
+            sensor-bindings = < &scroll_encoder &inc_dec_kp LC(TAB) LC(LS(TAB))>;
         };
 
         sym_layer {
             display-name = "Symbols";
             bindings = <
-                &msc SCRL_LEFT     &msc SCRL_UP     &kp HOME     &kp UP       &kp END      &kp LC(V)         &kp LBKT     &kp RBKT       &kp HASH        &kp UNDER   &kp RPAR   &kp CARET
-                &kp LC(LSHFT)      &kp LSHFT        &kp LEFT     &kp DOWN     &kp RIGHT    &kp LC(C)         &kp LBRC     &kp RBRC       &kp PERCENT     &kp FSLH   &kp AT   &kp DOLLAR
-                &msc SCRL_RIGHT    &msc SCRL_DOWN   &none        &trans       &kp LC(A)    &kp LC(X)         &kp LPAR     &kp RPAR     &kp TILDE       &kp RBRC   &kp EXCL   &kp TILDE
-                                                                                            &kp END          &kp C_PP
-                                                             &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
+                &kp F15   &kp F16    &kp F19     &kp F20    &kp UNDER           &kp EQUAL           &kp F16   &kp N7      &kp N8   &kp N9    &kp F17    &kp PRCNT
+                &kp F14   &kp F13    &kp LPAR   &kp RPAR    &kp KP_PLUS         &kp KP_MINUS        &kp N0    &kp F23    &kp F24   &kp N6    &kp BSPC   &kp AMPS   
+                &kp GRAVE &kp BSLH   &kp F21    &kp F22     &kp KP_MULTIPLY     &kp KP_DIVIDE       &kp F18   &kp N1      &kp N2   &kp N3    &kp DOT    &kp COMMA
+                                                                            &trans              &trans
+                                      &trans       &trans       &trans      &trans              &trans     &trans     &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp LEFT RIGHT>;
@@ -137,16 +137,16 @@
         adj_layer {
             display-name = "Adjust";
             bindings = <
-                &bootloader   &rgb_ug RGB_TOG   &rgb_ug RGB_SAI   &rgb_ug RGB_SAD   &rgb_ug RGB_SPI   &rgb_ug RGB_SPD             &out OUT_TOG    &trans            &trans     &trans     &trans     &bootloader
+                &bootloader   &rgb_ug RGB_TOG   &rgb_ug RGB_SAI   &rgb_ug RGB_SAD   &rgb_ug RGB_SPI   &rgb_ug RGB_SPD             &out OUT_TOG    &to GAM            &trans     &trans     &ext_power EP_TOG     &bootloader
                 &sys_reset    &rgb_ug RGB_HUI   &rgb_ug RGB_HUD   &rgb_ug RGB_BRI   &rgb_ug RGB_BRD   &rgb_ug RGB_EFF             &kp PRINTSCREEN &studio_unlock    &trans     &trans     &trans     &sys_reset
                 &bt BT_CLR    &bt BT_SEL 0      &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &kp C_PREV      &kp C_PP          &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &trans
                                                                  &kp C_PP                                  &trans
-                                  &ext_power EP_TOG &trans      &trans         &trans                    &trans   &trans     &trans         &trans
+                                                                        &trans &trans      &trans         &trans                    &trans   &trans     &trans         &trans
             >;
 
             sensor-bindings = <
-                &inc_dec_kp PG_UP PG_DN
-                &inc_dec_kp  C_VOL_UP C_VOL_DN
+                &inc_dec_kp RGB_BRI RGB_BRD
+                &inc_dec_kp  RGB_SPI RGB_SPD
             >;
         };
 
@@ -157,7 +157,7 @@
                 &kp AMPS       &kp A        &kp S        &kp D        &kp F           &kp G           &kp F7       &kp F8           &kp F9     &kp F10    &kp F11     &kp F12
                 &kp GRAVE      &kp Z        &kp X        &kp C        &kp V           &kp B           &kp F1       &kp F2           &kp F3     &kp F4     &kp F5      &kp F6 
                                                                     &kp END                                                      &kp C_PP
-                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
+                                            &trans       &trans       &trans      &trans              &trans     &trans     &trans      &trans
             >;
 
             sensor-bindings = <
@@ -173,7 +173,7 @@
                 &kp AMPS       &kp A        &kp LEFT     &kp DOWN       &kp RIGHT    &kp LC(C)           &kp F7       &kp F8           &kp F9     &kp F10    &kp F11     &kp F12
                 &kp GRAVE      &kp Z        &kp X        &kp C          &kp LC(A)    &kp LC(X)           &kp F1       &kp F2           &kp F3     &kp F4     &kp F5      &kp F6 
                                                                     &kp END                                                      &kp C_PP
-                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ SPACE &ht RSHFT TAB
+                                            &trans       &trans       &trans      &trans              &trans     &trans     &trans      &trans
             >;
 
             sensor-bindings = <
@@ -185,7 +185,7 @@
         game_layer {
             display-name = "Game";
             bindings = <
-                &kp ESC       &kp T     &kp Q        &kp W        &kp E        &kp R             /**/      &kp Y       &kp U           &kp I        &kp O        &kp P        &kp LBKT
+                &kp ESC       &kp T     &kp Q        &kp W        &kp E        &kp R             /**/      &kp Y       &kp U           &kp I        &kp O        &kp P        &to DEF
                 &kp AMPS      &kp G     &kp A        &kp S        &kp D        &kp F             /**/      &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
                 &kp GRAVE     &kp B     &kp Z        &kp X        &kp C        &kp V             /**/      &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
                                                                                     &kp LG(Z)    /**/      &kp C_PP

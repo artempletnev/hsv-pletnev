@@ -31,8 +31,8 @@
     conditional_layers {                                /* Условные слои: автоактивация слоёв */
         compatible = "zmk,conditional-layers";
 
-        tri_layer {                                     /* Правило: если SYM или NUM → включить ADJ */
-            if-layers = <SYM NUM>;                      /* Если активен слой 1 (SYM) или 2 (NUM) */
+        tri_layer {                                     /* Правило: если SYM и NUM → включить ADJ */
+            if-layers = <SYM NUM>;                      /* Если активен слой 1 (SYM) и 2 (NUM) */
             then-layer = <ADJ>;                         /* То также активировать слой 3 (ADJ) */
         };                                              /* ADJ «накладывается» поверх SYM/NUM */
     };
@@ -102,11 +102,10 @@
                 &td_qe          &lt NAV A    &kp S        &kp D        &kp F           &kp G     /**/      &kp H       &kp J           &kp K        &kp L        &kp SEMI     &kp SQT
                 &kp GRAVE       &kp Z        &kp X        &kp C        &kp V           &kp B     /**/      &kp N       &kp M           &kp RBKT     &kp FSLH     &kp DOT      &kp COMMA 
                                                                                     &kp LG(Z)    /**/      &kp C_PP
-                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &lq ADJ RET &ht RSHFT TAB
-            >; n
+                                            &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM F23      &lq NUM F24 &ht RALT BSPC &kp RET &ht RSHFT TAB
+            >;
 
             sensor-bindings = <&inc_dec_kp LG(T) LG(LS(T)) &inc_dec_kp LC(TAB) LC(LS(TAB))>;
-            /*sensor-bindings = <&scroll_encoder &inc_dec_kp >;*/
         };
 
         sym_layer {
@@ -119,13 +118,13 @@
                                                              &trans     &trans     &trans     &trans          &trans     &trans             &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp LEFT RIGHT PG_DN &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp LEFT RIGHT>;
         };
 
         num_layer {
             display-name = "Numbers";
             bindings = <
-                &kp F15   &kp F16    &kp 19     &kp F20     &kp UNDER           &kp EQUAL           &kp F16   &kp N7      &kp N8   &kp N9    &kp F17    &kp PRCNT
+                &kp F15   &kp F16    &kp F19     &kp F20     &kp UNDER           &kp EQUAL           &kp F16   &kp N7      &kp N8   &kp N9    &kp F17    &kp PRCNT
                 &kp F14   &kp F13    &kp LPAR   &kp RPAR    &kp KP_PLUS         &kp KP_MINUS        &kp N0    &kp N4      &kp N5   &kp N6    &kp BSPC   &kp AMPS   
                 &kp GRAVE &kp BSLH   &kp F21    &kp F22     &kp KP_MULTIPLY     &kp KP_DIVIDE       &kp F18   &kp N1      &kp N2   &kp N3    &kp DOT    &kp COMMA
                                                                             &trans              &trans

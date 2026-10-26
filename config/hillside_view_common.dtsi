@@ -90,6 +90,18 @@
             tapping-term-ms = <200>;
             bindings = <&kp LS(N7)>, <&kp EXCL>;
         };
+
+        rgb_brightness_encoder: rgb_brightness_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        rgb_speed_encoder: rgb_speed_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_SPI>, <&rgb_ug RGB_SPD>;
+        };
     };
 
     keymap {
@@ -105,7 +117,7 @@
                                 &ht LCTRL TAB &ht LSHFT SPACE &ht LGUI DEL &lq SYM LC(LS(N1))      &lq NUM LC(LS(N2))  &ht RALT BSPC &kp RET &ht RSHFT TAB
             >;
 
-            sensor-bindings = < &scroll_encoder &inc_dec_kp LC(TAB) LC(LS(TAB))>;
+            sensor-bindings = < &inc_dec_kp LEFT RIGHT &inc_dec_kp LC(TAB) LC(LS(TAB))>;
         };
 
         sym_layer {
@@ -144,10 +156,7 @@
                                                                         &trans &trans      &trans         &trans                    &trans   &trans     &trans         &trans
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp RGB_BRI RGB_BRD
-                &inc_dec_kp  RGB_SPI RGB_SPD
-            >;
+            sensor-bindings = <&rgb_brightness_encoder &rgb_speed_encoder>;
         };
 
         func_layer  {
